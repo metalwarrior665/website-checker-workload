@@ -8,7 +8,7 @@
             "type": "string",
             "description": "Website URL where you want to start checking",
             "editor": "textfield",
-            "prefil": "https://apify.com"
+            "prefill": "https://apify.com"
         },
         "runBrowser": {
             "title": "Check with browser",
@@ -26,8 +26,8 @@
             "title": "Proxy groups",
             "type": "array",
             "description": "List of proxy groups you want to test. Can be also `auto` to run with all proxies",
-            "editor": "textfield",
-            "prefil": ["auto", "BUYPROXIES84958"]
+            "editor": "stringList",
+            "prefill": ["auto", "BUYPROXIES84958"]
         },
         "maxPagesPerCheck": {
             "title": "Max pages per each check",
