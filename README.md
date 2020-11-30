@@ -15,7 +15,17 @@ This actor runs a Website Checker for each proxy group and for both browser/Pupp
 | runInParallel | Boolean | true | What to scrape from each page, default is "posts" the other option is "comments" |
 
 ## Output
-The output is saved to the default Key-Value store as `OUTPUT` record. It is a combined output from all Website Checker runs with added spent compute units
+The output is saved to the default Key-Value store as `OUTPUT` record. It is a combined output from all Website Checker runs with added spent compute units.
+
+For example for input consisting of
+```json
+"runBrowser": true,
+"runCheerio": true,
+"proxyGroups": ["auto", "BUYPROXIES84958"]
+```
+
+The actor will run 4 checkers with all possible combinations:
+
 ```json
 {
     "puppeteer/auto": {
