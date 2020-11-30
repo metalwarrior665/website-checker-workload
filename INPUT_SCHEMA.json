@@ -1,0 +1,46 @@
+{
+    "title": "Input schema for the apify_project actor.",
+    "type": "object",
+    "schemaVersion": 1,
+    "properties": {
+        "website": {
+            "title": "Website URL",
+            "type": "string",
+            "description": "Website URL where you want to start checking",
+            "editor": "textfield",
+            "prefil": "https://apify.com"
+        },
+        "runBrowser": {
+            "title": "Check with browser",
+            "type": "boolean",
+            "description": "Run the checker with browser",
+            "default": true
+        },
+        "runCheerio": {
+            "title": "Check with Cheerio",
+            "type": "boolean",
+            "description": "Run the checker with cheerio",
+            "default": true
+        },
+        "proxyGroups": {
+            "title": "Proxy groups",
+            "type": "array",
+            "description": "List of proxy groups you want to test. Can be also `auto` to run with all proxies",
+            "editor": "textfield",
+            "prefil": ["auto", "BUYPROXIES84958"]
+        },
+        "maxPagesPerCheck": {
+            "title": "Max pages per each check",
+            "type": "integer",
+            "description": "Max pages per each check",
+            "default": 200
+        },
+        "runInParallel": {
+            "title": "Run checks in parallel",
+            "type": "boolean",
+            "description": "Turn off if you don't have enough memory. Each browser run has 8 GB and each Cheerio run has 4 GB. Each of these run for each proxy group.",
+            "default": true
+        }
+    },
+    "required": ["website"]
+}
