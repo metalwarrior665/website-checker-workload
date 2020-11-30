@@ -45,7 +45,7 @@ const callWebsiteChecker = async (inputConfig, output) => {
         const { total } = runResult.output.body;
         const runKey = `${type}/${proxy}`;
         output[runKey] = {
-            computeUnits,
+            computeUnits: Number((computeUnits).toFixed(4)),
             pagesPerComputeUnit: Number((total / computeUnits).toFixed(2)),
             ...runResult.output.body,
         };
@@ -99,6 +99,9 @@ Apify.main(async () => {
 
     await Apify.setValue('OUTPUT', output);
 
-    log.info('All Website Checker runs finished, overall check results can be found here:'
-        + `https://api.apify.com/v2/key-value-stores/${Apify.getEnv().defaultKeyValueStoreId}/records/OUTPUT?disableRedirect=true`);
+    const outputLink = Apify.getEnv().isAtHome()
+        ? `https://api.apify.com/v2/key-value-stores/${Apify.getEnv().defaultKeyValueStoreId}/records/OUTPUT?disableRedirect=true`
+        : 'apify_storage/key_value_stores/default/OUTPUT.json';
+
+    log.info(`All Website Checker runs finished, overall check results can be found here: ${outputLink}`);
 });
