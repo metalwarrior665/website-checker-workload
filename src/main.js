@@ -99,7 +99,7 @@ Apify.main(async () => {
 
     await Apify.setValue('OUTPUT', output);
 
-    const outputLink = Apify.getEnv().isAtHome()
+    const outputLink = Apify.getEnv().isAtHome
         ? `https://api.apify.com/v2/key-value-stores/${Apify.getEnv().defaultKeyValueStoreId}/records/OUTPUT?disableRedirect=true`
         : 'apify_storage/key_value_stores/default/OUTPUT.json';
 
